@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite *)",
+      "Bash(Copy-Item \"F:\\\\Dishnet\\\\project\\\\public\\\\lightbg.png\" \"F:\\\\Ash\\\\project-bolt-sb1-epqq18pz\\\\DishNet\\\\public\\\\lightbg.png\")",
+      "Bash(Get-ChildItem -Path \"F:\\\\Ash\\\\project-bolt-sb1-epqq18pz\\\\DishNet\" -Recurse -File)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(gh auth *)",
+      "PowerShell(gh auth status 2>&1)",
+      "Bash(find \"F:\\\\Dishnet\" -name \"elia.jpg\" 2>/dev/null; find \"F:\\\\\" -name \"elia.jpg\" -maxdepth 6 2>/dev/null)"
+    ]
+  }
+}
