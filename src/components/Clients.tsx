@@ -15,7 +15,7 @@ const trust = [
 export function Clients() {
   const row = [...logos, ...logos];
   return (
-    <section className="relative py-20">
+    <section className="relative py-12 md:py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       <div className="relative max-w-6xl mx-auto px-5 md:px-8">
         <div className="text-center mb-8 reveal">

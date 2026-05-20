@@ -45,7 +45,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-28 md:py-36">
+    <section id="projects" className="relative py-16 md:py-36">
       <div className="absolute inset-0 grid-bg opacity-10" />
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
@@ -65,7 +65,7 @@ export function Projects() {
           </a>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6">
+        <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-4 md:gap-6">
           {projects.map((p, i) => (
             <ProjectCard key={p.name} project={p} featured={i === 0} />
           ))}
@@ -88,7 +88,7 @@ function ProjectCard({
         featured ? 'md:col-span-2' : ''
       }`}
     >
-      <div className={`relative ${featured ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
+      <div className={`relative ${featured ? 'aspect-[4/3] md:aspect-[21/9]' : 'aspect-[16/10]'}`}>
         <img
           src={project.image}
           alt={`[PROJECT IMAGE PLACEHOLDER] ${project.name}`}
@@ -109,15 +109,15 @@ function ProjectCard({
           {project.location}
         </div>
 
-        <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
-          <h3 className="font-display text-3xl md:text-5xl font-semibold text-white">
+        <div className="absolute bottom-0 inset-x-0 p-4 md:p-8">
+          <h3 className="font-display text-2xl md:text-5xl font-semibold text-white">
             {project.name}
           </h3>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-3 md:mt-4 flex flex-wrap gap-1.5 md:gap-2">
             {project.services.slice(0, featured ? 7 : 4).map((s) => (
               <span
                 key={s}
-                className="text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-white/70"
+                className="text-[9px] md:text-[11px] font-mono uppercase tracking-wider md:tracking-widest px-2 md:px-2.5 py-0.5 md:py-1 rounded-full bg-white/5 border border-white/10 text-white/70 max-w-full break-words"
               >
                 {s}
               </span>

@@ -14,10 +14,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[760px] pt-20 md:pt-24 pb-36 md:pb-40 overflow-hidden flex flex-col"
+      className="relative min-h-[700px] lg:h-screen lg:min-h-[760px] pt-20 md:pt-24 pb-32 md:pb-40 overflow-hidden flex flex-col"
     >
+      {/* Desktop hero background — unchanged */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="hidden lg:block absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url('/redwhite.png')",
           backgroundSize: '58% auto',
@@ -28,6 +29,21 @@ export function Hero() {
             'radial-gradient(ellipse 70% 80% at 78% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)',
           maskImage:
             'radial-gradient(ellipse 70% 80% at 78% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)',
+        }}
+      />
+      {/* Mobile hero background — large, behind everything as ambient */}
+      <div
+        className="lg:hidden absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/redwhite.png')",
+          backgroundSize: '180% auto',
+          backgroundPosition: 'right -40% center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.5,
+          WebkitMaskImage:
+            'radial-gradient(ellipse 90% 80% at 75% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%)',
+          maskImage:
+            'radial-gradient(ellipse 90% 80% at 75% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%)',
         }}
       />
       <div
@@ -101,10 +117,6 @@ export function Hero() {
             <FloatingUI />
           </div>
         </div>
-      </div>
-
-      <div className="lg:hidden relative mx-auto max-w-7xl px-5 mt-6">
-        <FloatingUI compact />
       </div>
 
       <TrustedMarquee />

@@ -83,19 +83,39 @@ export function About() {
             </div>
           </div>
 
-          <div className="absolute -bottom-6 -left-6 glass-strong rounded-2xl p-5 w-52 animate-float">
+          {/* Desktop-only floating glass cards */}
+          <div className="hidden lg:block absolute -bottom-6 -left-6 glass-strong rounded-2xl p-5 w-52 animate-float">
             <div className="text-xs font-mono uppercase tracking-widest text-gray-500">
               Since
             </div>
             <div className="font-display text-4xl text-gray-900 mt-1">2002</div>
             <div className="text-xs text-gray-500 mt-1">Trusted partner in low voltage</div>
           </div>
-          <div className="absolute -top-6 -right-6 glass-strong rounded-2xl p-5 w-56 animate-float" style={{ animationDelay: '1.5s' }}>
+          <div className="hidden lg:block absolute -top-6 -right-6 glass-strong rounded-2xl p-5 w-56 animate-float" style={{ animationDelay: '1.5s' }}>
             <div className="text-xs font-mono uppercase tracking-widest text-ember-400">
               Coverage
             </div>
             <div className="font-display text-2xl text-gray-900 mt-1 leading-tight">
               Northern &amp; Southern California
+            </div>
+          </div>
+
+          {/* Mobile-only stat row below photo */}
+          <div className="lg:hidden mt-6 grid grid-cols-2 gap-3">
+            <div className="glass-strong rounded-2xl p-4">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-gray-500">
+                Since
+              </div>
+              <div className="font-display text-3xl text-gray-900 mt-1">2002</div>
+              <div className="text-[10px] text-gray-500 mt-1 leading-snug">Trusted in low voltage</div>
+            </div>
+            <div className="glass-strong rounded-2xl p-4">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-ember-400">
+                Coverage
+              </div>
+              <div className="font-display text-base text-gray-900 mt-1 leading-tight">
+                Northern &amp; Southern California
+              </div>
             </div>
           </div>
         </div>

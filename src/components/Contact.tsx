@@ -19,7 +19,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 md:py-36 overflow-hidden">
+    <section id="contact" className="relative py-16 md:py-36 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-10" />
       <div
         className="absolute -right-40 top-1/4 w-[700px] h-[700px] rounded-full blur-[140px] pointer-events-none"
@@ -64,7 +64,7 @@ export function Contact() {
               <p className="mt-2 text-sm text-gray-600">
                 To apply for a job with Dishnet Direct Inc., please send a cover letter
                 together with your C.V. to:{' '}
-                <a href="mailto:info@dishnetdirect.com" className="text-white underline decoration-ember-500/50">
+                <a href="mailto:info@dishnetdirect.com" className="text-ember-500 hover:text-ember-600 underline decoration-ember-500/50 transition">
                   info@dishnetdirect.com
                 </a>
               </p>
@@ -73,7 +73,7 @@ export function Contact() {
 
           <div className="lg:col-span-7 reveal">
             <div className="relative">
-              <div className="glass-strong rounded-3xl p-6 md:p-10">
+              <div className="glass-strong rounded-3xl p-5 md:p-10">
                 {status === 'sent' ? (
                   <div className="flex flex-col items-center text-center py-16">
                     <div className="w-16 h-16 rounded-full bg-ember-500/20 flex items-center justify-center mb-5">
@@ -104,14 +104,14 @@ export function Contact() {
                       <Field label="Message" value={form.message} textarea
                              onChange={(v) => setForm({ ...form, message: v })} required />
                     </div>
-                    <div className="md:col-span-2 flex items-center justify-between gap-4 mt-2">
-                      <div className="text-xs font-mono uppercase tracking-widest text-gray-400">
+                    <div className="md:col-span-2 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-3 md:gap-4 mt-2">
+                      <div className="text-xs font-mono uppercase tracking-widest text-gray-400 text-center md:text-left">
                         // Secure transmission
                       </div>
                       <button
                         type="submit"
                         disabled={status === 'sending'}
-                        className="btn-primary disabled:opacity-60"
+                        className="btn-primary disabled:opacity-60 w-full md:w-auto justify-center"
                       >
                         {status === 'sending' ? 'Sending...' : 'Send Inquiry'}
                         <ArrowUpRight className="w-4 h-4" />

@@ -32,7 +32,7 @@ const navGroups = [
 
 export function Footer() {
   return (
-    <footer className="relative pt-20 pb-10 overflow-hidden">
+    <footer className="relative pt-12 md:pt-20 pb-8 md:pb-10 overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ember-500/60 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-100/60" />
       <div className="relative mx-auto max-w-7xl px-5">
@@ -89,7 +89,7 @@ export function Footer() {
               <ul className="mt-4 space-y-3">
                 {g.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-gray-600 hover:text-white transition">
+                    <a href={l.href} className="text-sm text-gray-600 hover:text-ember-500 active:text-ember-500 transition inline-block py-1.5">
                       {l.label}
                     </a>
                   </li>
@@ -103,10 +103,10 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-gray-600">
               <li>142 Kennedy Avenue<br />Campbell, CA 95008</li>
               <li>
-                <a href="tel:+14083405085" className="hover:text-white">(408) 340-5085</a>
+                <a href="tel:+14083405085" className="hover:text-ember-500 active:text-ember-500 transition">(408) 340-5085</a>
               </li>
               <li>
-                <a href="mailto:info@dishnetdirect.com" className="hover:text-white">
+                <a href="mailto:info@dishnetdirect.com" className="hover:text-ember-500 active:text-ember-500 transition">
                   info@dishnetdirect.com
                 </a>
               </li>

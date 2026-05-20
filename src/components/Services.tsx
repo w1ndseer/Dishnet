@@ -50,7 +50,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-28 md:py-36">
+    <section id="services" className="relative py-16 md:py-36">
       <div className="absolute inset-0 grid-bg opacity-10" />
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
@@ -69,7 +69,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 md:mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {services.map((s, i) => (
             <ServiceCard key={s.id} service={s} index={i} />
           ))}
@@ -110,7 +110,7 @@ function ServiceCard({
         </div>
       </div>
 
-      <div className="p-6 md:p-7">
+      <div className="p-5 md:p-7">
         <h3 className="text-2xl font-display font-semibold text-gray-900">{service.title}</h3>
         <p className="mt-3 text-sm text-gray-500 leading-relaxed line-clamp-5 group-hover:line-clamp-none transition-all">
           {service.description}
