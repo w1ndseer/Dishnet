@@ -14,36 +14,36 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[700px] lg:h-screen lg:min-h-[760px] pt-20 md:pt-24 pb-32 md:pb-40 overflow-hidden flex flex-col"
+      className="relative min-h-[700px] lg:h-screen lg:min-h-[760px] pt-32 md:pt-24 pb-32 md:pb-40 overflow-hidden flex flex-col"
     >
-      {/* Desktop hero background — unchanged */}
+      {/* Desktop hero background */}
       <div
         className="hidden lg:block absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url('/redwhite.png')",
-          backgroundSize: '58% auto',
-          backgroundPosition: 'right 156px center',
+          backgroundSize: '75% auto',
+          backgroundPosition: 'right 40px center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.9,
+          opacity: 1,
           WebkitMaskImage:
             'radial-gradient(ellipse 70% 80% at 78% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)',
           maskImage:
             'radial-gradient(ellipse 70% 80% at 78% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)',
         }}
       />
-      {/* Mobile hero background — large, behind everything as ambient */}
+      {/* Mobile hero background — centered, large ambient */}
       <div
         className="lg:hidden absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url('/redwhite.png')",
-          backgroundSize: '180% auto',
-          backgroundPosition: 'right -40% center',
+          backgroundSize: '290% auto',
+          backgroundPosition: '50% center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.5,
+          opacity: 0.7,
           WebkitMaskImage:
-            'radial-gradient(ellipse 90% 80% at 75% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%)',
+            'radial-gradient(ellipse 100% 80% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%)',
           maskImage:
-            'radial-gradient(ellipse 90% 80% at 75% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%)',
+            'radial-gradient(ellipse 100% 80% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%)',
         }}
       />
       <div
@@ -56,8 +56,8 @@ export function Hero() {
       <div
         className="absolute bottom-0 inset-x-0 pointer-events-none"
         style={{
-          height: '45%',
-          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.95) 70%, rgba(255,255,255,1) 85%, rgba(255,255,255,1) 100%)',
+          height: '28%',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,1) 100%)',
         }}
       />
 
@@ -87,25 +87,46 @@ export function Hero() {
 
             <div className="mt-4 flex items-center gap-3">
               <div className="h-px w-10 bg-ember-500" />
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gray-500">
+              <p className="font-mono font-bold text-[11px] uppercase tracking-[0.3em] text-black">
                 The Leader in Low Voltage &amp; Systems Integration
               </p>
             </div>
 
-            <p className="mt-4 max-w-md text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="mt-4 max-w-md text-black font-bold text-sm md:text-base leading-relaxed">
               Dishnet Direct engineers mission-critical low-voltage, security, and
               fire/life safety infrastructures for the buildings that power modern life.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <TraceButton
-                href="#contact"
-                buttonStyle="rounded-fill"
-                colors={{ primary: '#ef4444', accent: '#f87171', text: '#ff2d0a' }}
+              {/* Mobile: stronger background */}
+              <div className="lg:hidden">
+                <TraceButton
+                  href="#contact"
+                  buttonStyle="rounded-fill"
+                  colors={{ primary: '#ef4444', accent: '#f87171', text: '#ff2d0a' }}
+                  style={{
+                    background: 'rgba(255,255,255,0.85)',
+                    backdropFilter: 'blur(6px)',
+                    WebkitBackdropFilter: 'blur(6px)',
+                  }}
+                >
+                  Get a Quote
+                </TraceButton>
+              </div>
+              {/* Desktop: original */}
+              <div className="hidden lg:block">
+                <TraceButton
+                  href="#contact"
+                  buttonStyle="rounded-fill"
+                  colors={{ primary: '#ef4444', accent: '#f87171', text: '#ff2d0a' }}
+                >
+                  Get a Quote
+                </TraceButton>
+              </div>
+              <a
+                href="#services"
+                className="btn-ghost !text-black bg-white/80 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none"
               >
-                Get a Quote
-              </TraceButton>
-              <a href="#services" className="btn-ghost">
                 Explore Services
               </a>
             </div>
@@ -159,13 +180,13 @@ function StatsStrip() {
               className="font-display text-2xl md:text-3xl font-semibold bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  'linear-gradient(90deg, #ff2d0a 0%, #ff6a1a 35%, #ffb347 70%, #f5c26b 100%)',
+                  'linear-gradient(90deg, #ff2d0a 0%, #0a0a0a 50%, #ff2d0a 100%)',
               }}
             >
               {s.value}
             </span>
           </div>
-          <div className="mt-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400">
+          <div className="mt-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-black font-bold">
             {s.label}
           </div>
         </div>

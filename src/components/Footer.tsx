@@ -1,4 +1,4 @@
-import { Radio, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const navGroups = [
   {
@@ -38,17 +38,17 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-ember-400 to-ember-700 flex items-center justify-center">
-                <Radio className="w-5 h-5 text-white" strokeWidth={2.4} />
+            <a href="#home" className="inline-flex flex-col items-start -ml-2">
+              <img
+                src="/dishnet.png"
+                alt="Dishnet Direct"
+                className="h-14 md:h-20 w-auto object-contain select-none"
+                draggable={false}
+              />
+              <div className="ml-2 -mt-1 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.3em] text-gray-500">
+                Plan. Execute. Deliver.
               </div>
-              <div>
-                <div className="font-display font-semibold text-gray-900">Dishnet Direct</div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-gray-400">
-                  Plan. Execute. Deliver.
-                </div>
-              </div>
-            </div>
+            </a>
             <p className="mt-5 text-sm text-gray-500 max-w-xs leading-relaxed">
               The Leader in Low Voltage &amp; Systems Integration. Design. Build. Maintain.
               Serving Northern &amp; Southern California since 2002.
@@ -65,7 +65,7 @@ export function Footer() {
               ))}
             </div>
 
-            <div className="mt-5 flex items-center gap-4">
+            <div className="mt-6 flex items-center gap-6 flex-wrap">
               {[
                 { src: '/Butterfly.avif', alt: 'Butterfly' },
                 { src: '/BGCSCC_logo_vert.avif', alt: 'BGCSCC' },
@@ -75,7 +75,8 @@ export function Footer() {
                   key={src}
                   src={src}
                   alt={alt}
-                  className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                  className="h-16 md:h-20 w-auto object-contain bg-transparent hover:scale-105 transition-transform duration-300"
+                  style={{ mixBlendMode: 'multiply' }}
                 />
               ))}
             </div>

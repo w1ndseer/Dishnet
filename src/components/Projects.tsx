@@ -92,7 +92,7 @@ function ProjectCard({
         <img
           src={project.image}
           alt={`[PROJECT IMAGE PLACEHOLDER] ${project.name}`}
-          className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition duration-[1200ms] opacity-75 group-hover:opacity-100"
+          className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition duration-[1200ms] opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/10" />
         <div className="absolute inset-0 grid-bg-fine opacity-20 mix-blend-overlay" />

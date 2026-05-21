@@ -48,32 +48,12 @@ export function About() {
         </div>
 
         <div className="lg:col-span-6 relative reveal">
-          {/* Outer glow ring — animates on hover */}
           <div className="group relative">
-            {/* Premium border frame */}
-            <div
-              className="absolute -inset-[3px] rounded-3xl z-10 pointer-events-none transition-opacity duration-500 opacity-60 group-hover:opacity-100"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,56,32,0.8) 0%, rgba(255,160,80,0.4) 40%, rgba(255,56,32,0.1) 60%, rgba(255,100,50,0.7) 100%)',
-                borderRadius: '26px',
-                padding: '2px',
-              }}
-            >
-              <div className="w-full h-full rounded-3xl bg-transparent" />
-            </div>
-            {/* Outer glow */}
-            <div
-              className="absolute -inset-4 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{
-                background: 'radial-gradient(ellipse at center, rgba(255,56,32,0.18) 0%, transparent 70%)',
-                filter: 'blur(12px)',
-              }}
-            />
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-strong transition-transform duration-500 group-hover:scale-[1.015]">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.015]">
               <img
                 src="/elia.png"
                 alt="Dishnet Direct Team"
-                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:opacity-100 group-hover:scale-[1.04]"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 style={{ objectPosition: 'center top' }}
               />
               <div className="absolute top-5 left-5 chip">

@@ -97,7 +97,7 @@ function ServiceCard({
         <img
           src={service.image}
           alt={service.tag}
-          className="w-full h-full object-cover scale-110 group-hover:scale-105 transition duration-700 opacity-70 group-hover:opacity-100"
+          className="w-full h-full object-cover scale-110 group-hover:scale-105 transition duration-700 opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         <div className="absolute inset-0 grid-bg-fine opacity-30 mix-blend-overlay" />
