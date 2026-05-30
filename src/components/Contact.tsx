@@ -62,7 +62,7 @@ export function Contact() {
                 Employment
               </div>
               <p className="mt-2 text-sm text-gray-600">
-                To apply for a job with Dishnet Direct Inc., please send a cover letter
+                To apply for a job with DishNet Direct Inc., please send a cover letter
                 together with your C.V. to:{' '}
                 <a href="mailto:info@dishnetdirect.com" className="text-ember-500 hover:text-ember-600 underline decoration-ember-500/50 transition">
                   info@dishnetdirect.com
@@ -163,7 +163,7 @@ export function Contact() {
                     />
                     <div>
                       <div className="font-display text-sm font-semibold text-white leading-tight">
-                        Dishnet Direct Inc.
+                        DishNet Direct Inc.
                       </div>
                       <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60 leading-tight mt-0.5">
                         142 Kennedy Ave, Campbell CA

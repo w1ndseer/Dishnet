@@ -1,34 +1,58 @@
-import { Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Linkedin, Facebook, Instagram, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { DAS_URL } from '../seo/org';
 
-const navGroups = [
+type FooterLink = { to: string; label: string; external?: boolean };
+
+const navGroups: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Navigation',
     links: [
-      { href: '#home', label: 'Home' },
-      { href: '#services', label: 'Services' },
-      { href: '#about', label: 'About' },
-      { href: '#projects', label: 'Projects' },
-      { href: '#contact', label: 'Contact Us' },
+      { to: '/#home', label: 'Home' },
+      { to: '/#services', label: 'Services' },
+      { to: '/#about', label: 'About' },
+      { to: '/#projects', label: 'Projects' },
+      { to: '/#contact', label: 'Contact Us' },
     ],
   },
   {
     title: 'Services',
     links: [
-      { href: '#low-voltage', label: 'Low Voltage' },
-      { href: '#security', label: 'Security' },
-      { href: '#fire-life-safety', label: 'Fire / Life Safety' },
+      { to: '/services/low-voltage', label: 'Low Voltage' },
+      { to: '/services/security', label: 'Security' },
+      { to: '/services/fire-life-safety', label: 'Fire & Life Safety' },
+      { to: '/services/errcs', label: 'ERRCS' },
+      { to: '/services/cellular-das', label: 'Cellular DAS' },
+      { to: '/services/in-building-wireless', label: 'In-Building Wireless' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { href: '#about', label: 'Our Team' },
-      { href: '#about', label: 'Dishnet in the Community' },
-      { href: '#projects', label: 'Projects' },
-      { href: '#contact', label: 'RF Test' },
+      { to: '/#about', label: 'Our Team' },
+      { to: '/#about', label: 'DishNet in the Community' },
+      { to: '/#projects', label: 'Projects' },
+      { to: DAS_URL, label: 'DAS Systems', external: true },
     ],
   },
 ];
+
+function FooterAnchor({ link }: { link: FooterLink }) {
+  const cls = 'text-sm text-gray-600 hover:text-ember-500 active:text-ember-500 transition inline-flex items-center gap-1 py-1.5';
+  if (link.external) {
+    return (
+      <a href={link.to} target="_blank" rel="noopener noreferrer" className={cls}>
+        {link.label}
+        <ArrowUpRight className="w-3.5 h-3.5" />
+      </a>
+    );
+  }
+  return (
+    <Link to={link.to} className={cls}>
+      {link.label}
+    </Link>
+  );
+}
 
 export function Footer() {
   return (
@@ -38,20 +62,27 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <a href="#home" className="inline-flex flex-col items-start -ml-2">
+            <Link to="/" className="inline-flex flex-col items-start -ml-2">
               <img
                 src="/dishnet.png"
-                alt="Dishnet Direct"
+                alt="DishNet Direct"
                 className="h-14 md:h-20 w-auto object-contain select-none"
                 draggable={false}
               />
               <div className="ml-2 -mt-1 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.3em] text-gray-500">
                 Plan. Execute. Deliver.
               </div>
-            </a>
+            </Link>
             <p className="mt-5 text-sm text-gray-500 max-w-xs leading-relaxed">
               The Leader in Low Voltage &amp; Systems Integration. Design. Build. Maintain.
               Serving Northern &amp; Southern California since 2002.
+            </p>
+            <p className="mt-4 text-sm text-gray-500 max-w-xs leading-relaxed">
+              In-building wireless is delivered by our specialist division,{' '}
+              <a href={DAS_URL} target="_blank" rel="noopener noreferrer" className="text-ember-500 hover:text-ember-400 transition">
+                DAS Systems
+              </a>
+              .
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
@@ -87,12 +118,10 @@ export function Footer() {
               <div className="text-xs font-mono uppercase tracking-[0.25em] text-gray-400">
                 {g.title}
               </div>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 space-y-1">
                 {g.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-gray-600 hover:text-ember-500 active:text-ember-500 transition inline-block py-1.5">
-                      {l.label}
-                    </a>
+                    <FooterAnchor link={l} />
                   </li>
                 ))}
               </ul>
@@ -116,7 +145,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between gap-3 text-xs font-mono uppercase tracking-widest text-gray-400">
-          <div>© {new Date().getFullYear()} Dishnet Direct, Inc. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} DishNet Direct, Inc. All rights reserved.</div>
           <div>Northern &amp; Southern California</div>
         </div>
       </div>

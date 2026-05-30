@@ -93,7 +93,7 @@ export function Hero() {
             </div>
 
             <p className="mt-4 max-w-md text-black font-bold text-sm md:text-base leading-relaxed">
-              Dishnet Direct engineers mission-critical low-voltage, security, and
+              DishNet Direct engineers mission-critical low-voltage, security, and
               fire/life safety infrastructures for the buildings that power modern life.
             </p>
 

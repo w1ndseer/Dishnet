@@ -11,7 +11,7 @@ export function About() {
             Our Team
           </div>
           <h2 className="section-title text-gray-900">
-            We are <span className="italic font-normal text-gray-600">Dishnet Direct.</span>
+            We are <span className="italic font-normal text-gray-600">DishNet Direct.</span>
           </h2>
           <p className="mt-4 font-mono text-xs uppercase tracking-[0.3em] text-ember-400">
             Plan. Execute. Deliver.
@@ -19,7 +19,7 @@ export function About() {
 
           <div className="mt-8 space-y-5 text-gray-600 leading-relaxed">
             <p>
-              This is our motto, and at Dishnet Direct, Inc. we have been a trusted
+              This is our motto, and at DishNet Direct, Inc. we have been a trusted
               name in Low Voltage systems and a solution provider since 2002. We
               serve both Northern and Southern California while having offices in
               both regions. Being a great systems provider means having complete and
@@ -52,7 +52,7 @@ export function About() {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.015]">
               <img
                 src="/elia.png"
-                alt="Dishnet Direct Team"
+                alt="DishNet Direct Team"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 style={{ objectPosition: 'center top' }}
               />

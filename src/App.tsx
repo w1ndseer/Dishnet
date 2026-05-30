@@ -1,28 +1,25 @@
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { About } from './components/About';
-import { Projects } from './components/Projects';
-import { Stats } from './components/Stats';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { useReveal } from './hooks/useReveal';
+import { Routes, Route } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { Home } from './pages/Home';
+import { CategoryPage } from './pages/CategoryPage';
+import { ServicePage } from './pages/ServicePage';
+import { IndustryPage } from './pages/IndustryPage';
+import { NotFound } from './pages/NotFound';
 
 function App() {
-  useReveal();
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Projects />
-        <Stats />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/services/:slug" element={<CategoryPage />} />
+        <Route path="/industries/:slug" element={<IndustryPage />} />
+        {/* Deep service pages live under /services/ but resolve via ServicePage */}
+        <Route path="/services/errcs" element={<ServicePage />} />
+        <Route path="/services/cellular-das" element={<ServicePage />} />
+        <Route path="/services/in-building-wireless" element={<ServicePage />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

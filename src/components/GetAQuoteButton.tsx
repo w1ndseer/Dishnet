@@ -61,11 +61,6 @@ export default function TraceButton({
   else if (buttonStyle === 'sharp') borderRadius = '0px';
   else if (buttonStyle === 'rounded-fill') borderRadius = '8px';
 
-  const traceBase: CSSProperties = {
-    position: 'absolute',
-    pointerEvents: 'none',
-  };
-
   const content = (
     <div
       style={{ position: 'relative', display: 'inline-block' }}

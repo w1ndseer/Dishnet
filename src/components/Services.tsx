@@ -1,6 +1,20 @@
 import { Cable, Shield, Flame, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import type { ReactNode } from 'react';
+import { DAS_URL } from '../seo/org';
 
-const services = [
+type Service = {
+  id: string;
+  icon: typeof Cable;
+  title: string;
+  tag: string;
+  image: string;
+  description: string;
+  items: { label: ReactNode }[];
+  to: string;
+};
+
+const services: Service[] = [
   {
     id: 'low-voltage',
     icon: Cable,
@@ -8,14 +22,15 @@ const services = [
     tag: '[SERVICE IMAGE PLACEHOLDER - LOW VOLTAGE]',
     image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1200',
     description:
-      'Dishnet Direct is a SI (Systems Integrator) in Low Voltage applications that are key to running successful businesses, healthcare and entertainment facilities, campuses and industrial properties. We design, build, monitor and maintain security, CCTV, A/V, Fire/life safety systems as well as Tele/Data communication infrastructures. Our partnerships with top technology hardware suppliers plus the ongoing training and certification of our team members makes Dishnet Direct a trusted partner and resource.',
+      'We design, build, and maintain the cabling and AV backbone that everything in your building runs on — from structured wiring to digital signage. One integrator, one accountable team.',
     items: [
-      'Audio Visual Systems',
-      'Structured Wiring',
-      'Central Satellite Systems',
-      'Off Air Antenna systems',
-      'Digital Signage',
+      { label: 'Audio Visual Systems' },
+      { label: 'Structured Wiring' },
+      { label: 'Central Satellite Systems' },
+      { label: 'Off Air Antenna systems' },
+      { label: 'Digital Signage' },
     ],
+    to: '/services/low-voltage',
   },
   {
     id: 'security',
@@ -24,12 +39,13 @@ const services = [
     tag: '[SERVICE IMAGE PLACEHOLDER - SECURITY]',
     image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1200',
     description:
-      'Dishnet Direct completely understands security systems. We are experts at determining which technology suits your needs, and designing, installing and maintaining your security system. Our partnerships with leading developers and manufacturers mean that when you work with Dishnet Direct you are always receiving state-of-the-art solutions.',
+      'Access control, intrusion detection, and surveillance — designed against your actual threat model and integrated with the rest of your building systems, not bolted on after the fact.',
     items: [
-      'Access Control Systems',
-      'Intrusion Alarm Systems',
-      'Surveillance Systems (CCTV)',
+      { label: 'Access Control Systems' },
+      { label: 'Intrusion Alarm Systems' },
+      { label: 'Surveillance Systems (CCTV)' },
     ],
+    to: '/services/security',
   },
   {
     id: 'fire-life-safety',
@@ -38,13 +54,28 @@ const services = [
     tag: '[SERVICE IMAGE PLACEHOLDER - FIRE LIFE SAFETY]',
     image: '/how-do-commercial-fire-alarms-work.webp',
     description:
-      'Dishnet Direct specifically partners with leading suppliers and engineered system distributors to provide the best design/build, design/assist and plan-spec engineering services that focuses on the utilization of the latest 3D AutoCAD and other current technologies.',
+      'Code-compliant fire alarm, ERRCS, and life-safety integration — engineered with current 3D AutoCAD and delivered alongside our 25-year RF specialist division, DAS Systems.',
     items: [
-      'ERRCS/DAS Turnkey',
-      'FA Smoke/Fire Detection',
-      'Two-Way Communication',
-      'Systems Integration',
+      {
+        label: (
+          <>
+            ERRCS / DAS Turnkey{' '}
+            <a
+              href={DAS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative z-20 text-xs text-gray-400 hover:text-ember-500 transition"
+            >
+              (specialist division: DAS Systems →)
+            </a>
+          </>
+        ),
+      },
+      { label: 'FA Smoke/Fire Detection' },
+      { label: 'Two-Way Communication' },
+      { label: 'Systems Integration' },
     ],
+    to: '/services/fire-life-safety',
   },
 ];
 
@@ -64,8 +95,9 @@ export function Services() {
             </h2>
           </div>
           <p className="max-w-md text-gray-500">
-            Three disciplines. One team. From rough-in to turnkey handoff, every
-            layer of the stack is owned by Dishnet Direct.
+            Three disciplines. One team. From rough-in to turnkey handoff, every layer of the stack
+            is owned by DishNet Direct — with our specialist RF division, DAS Systems, handling the
+            in-building wireless layer.
           </p>
         </div>
 
@@ -79,20 +111,19 @@ export function Services() {
   );
 }
 
-function ServiceCard({
-  service,
-  index,
-}: {
-  service: (typeof services)[number];
-  index: number;
-}) {
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = service.icon;
   return (
     <div
       id={service.id}
-      className="group relative rounded-2xl glass overflow-hidden reveal hover:border-ember-500/40 transition-all duration-500 hover:-translate-y-1"
+      className="group relative rounded-2xl glass overflow-hidden reveal hover:border-ember-500/40 transition-all duration-500 hover:-translate-y-1 flex flex-col"
       style={{ transitionDelay: `${index * 80}ms` }}
     >
+      <Link
+        to={service.to}
+        aria-label={`Explore ${service.title}`}
+        className="absolute inset-0 z-10"
+      />
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={service.image}
@@ -110,29 +141,21 @@ function ServiceCard({
         </div>
       </div>
 
-      <div className="p-5 md:p-7">
+      <div className="relative p-5 md:p-7 flex flex-col flex-1">
         <h3 className="text-2xl font-display font-semibold text-gray-900">{service.title}</h3>
-        <p className="mt-3 text-sm text-gray-500 leading-relaxed line-clamp-5 group-hover:line-clamp-none transition-all">
-          {service.description}
-        </p>
+        <p className="mt-3 text-sm text-gray-500 leading-relaxed">{service.description}</p>
         <ul className="mt-5 space-y-2">
-          {service.items.map((item) => (
-            <li
-              key={item}
-              className="flex items-center gap-2 text-sm text-gray-700"
-            >
-              <span className="w-1 h-1 rounded-full bg-ember-500" />
-              {item}
+          {service.items.map((item, idx) => (
+            <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+              <span className="w-1 h-1 rounded-full bg-ember-500 shrink-0" />
+              {item.label}
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="mt-6 inline-flex items-center gap-1 text-sm text-ember-400 group-hover:text-ember-300"
-        >
-          Discuss a project
+        <span className="mt-6 inline-flex items-center gap-1 text-sm text-ember-400 group-hover:text-ember-300">
+          Explore {service.title}
           <ArrowUpRight className="w-4 h-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+        </span>
       </div>
 
       <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500"
